@@ -20,6 +20,7 @@ public class DelombokEverythingAction extends AbstractDelombokAction {
                                manager.getSetterProcessor(),
                                manager.getEqualsAndHashCodeProcessor(),
                                manager.getToStringProcessor(),
+                               manager.getLookupProcessor(),
 
                                manager.getCommonsLogProcessor(),
                                manager.getJBossLogProcessor(),

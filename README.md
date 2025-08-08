@@ -120,7 +120,7 @@ You can also call it directly from IDEA, using run configuration `Build IDEA Com
 #### Dockerized Build Environment
 To build installation packages inside a Docker container with preinstalled dependencies and tools, run the following command in `<IDEA_HOME>` directory (on Windows, use PowerShell):
 ```bash
-docker run --rm -it --user "$(id -u)" --volume "${PWD}:/community" "$(docker build --quiet . --target intellij_idea)"
+docker run --rm -it --user "$(id -u)" --volume "`cygpath -w "$PWD"`":/community "$(docker build --quiet . --target intellij_idea)"
 ```
 > [!NOTE]
 > 
@@ -128,7 +128,7 @@ docker run --rm -it --user "$(id -u)" --volume "${PWD}:/community" "$(docker bui
 > This prevents issues with permissions for the checked-out repository, the build output, and the mounted Maven cache, if any.
 > 
 To reuse the existing Maven cache from the host system, add the following option to `docker run` command:
-`--volume "$HOME/.m2:/home/ide_builder/.m2"`
+``--volume "`cygpath -w "$HOME"`/.m2":/home/ide_builder/.m2``
 
 ---
 ## Running IntelliJ IDEA

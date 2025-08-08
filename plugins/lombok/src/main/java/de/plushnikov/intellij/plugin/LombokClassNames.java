@@ -49,6 +49,7 @@ public interface LombokClassNames {
   @NonNls String TO_STRING = "lombok.ToString";
   @NonNls String TO_STRING_EXCLUDE = "lombok.ToString.Exclude";
   @NonNls String TO_STRING_INCLUDE = "lombok.ToString.Include";
+  @NonNls String LOOKUP = "lombok.Lookup";
   @NonNls String UTILITY_CLASS = "lombok.experimental.UtilityClass";
   @NonNls String VAL = "lombok.val";
   @NonNls String VALUE = "lombok.Value";

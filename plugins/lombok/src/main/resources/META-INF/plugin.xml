@@ -5,10 +5,17 @@
   <vendor>JetBrains</vendor>
   <resource-bundle>messages.LombokBundle</resource-bundle>
   <description><![CDATA[
-<h1>IntelliJ Lombok plugin</h1>
+<h1>IntelliJ Lombok Extension plugin</h1>
 <br/>
-<b>A plugin that adds first-class support for Project Lombok</b>
+<b>A plugin that adds first-class support for Project Lombok Extension (including plain Lombok) library</b>
 <br/>
+<b>What is Lombok Extension?</b>
+<br/>
+See <a href="https://github.com/coolsoftrf/lombok-ext">Lombok extension</a> library for reference
+<b>Extension Features</b>
+<ul>
+  <li>@Lookup annotation</li>
+</ul>
 <b>Features</b>
 <ul>
   <li><a href="https://projectlombok.org/features/GetterSetter.html">@Getter and @Setter</a></li>

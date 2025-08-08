@@ -33,6 +33,10 @@ public final class DataProcessor extends AbstractClassProcessor {
     return LombokProcessorManager.getInstance().getToStringProcessor();
   }
 
+  private static LookupProcessor getLookupProcessor() {
+    return LombokProcessorManager.getInstance().getLookupProcessor();
+  }
+
   private static NoArgsConstructorProcessor getNoArgsConstructorProcessor() {
     return LombokProcessorManager.getInstance().getNoArgsConstructorProcessor();
   }
@@ -60,6 +64,7 @@ public final class DataProcessor extends AbstractClassProcessor {
     return nameHint.equals(getStaticConstructorNameValue(psiAnnotation)) ||
            getNoArgsConstructorProcessor().possibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation) ||
            getToStringProcessor().possibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation) ||
+           getLookupProcessor().possibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation) ||
            getEqualsAndHashCodeProcessor().possibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation) ||
            getGetterProcessor().possibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation) ||
            getSetterProcessor().possibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation);
@@ -75,6 +80,7 @@ public final class DataProcessor extends AbstractClassProcessor {
     }
     result.addAll(getNoArgsConstructorProcessor().getNamesOfPossibleGeneratedElements(psiClass, psiAnnotation));
     result.addAll(getToStringProcessor().getNamesOfPossibleGeneratedElements(psiClass, psiAnnotation));
+    result.addAll(getLookupProcessor().getNamesOfPossibleGeneratedElements(psiClass, psiAnnotation));
     result.addAll(getEqualsAndHashCodeProcessor().getNamesOfPossibleGeneratedElements(psiClass, psiAnnotation));
     result.addAll(getGetterProcessor().getNamesOfPossibleGeneratedElements(psiClass, psiAnnotation));
     result.addAll(getSetterProcessor().getNamesOfPossibleGeneratedElements(psiClass, psiAnnotation));
@@ -130,6 +136,10 @@ public final class DataProcessor extends AbstractClassProcessor {
     if (PsiAnnotationSearchUtil.isNotAnnotatedWith(psiClass, LombokClassNames.TO_STRING) &&
         getToStringProcessor().noHintOrPossibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation)) {
       target.addAll(getToStringProcessor().createToStringMethod(psiClass, psiAnnotation));
+    }
+    if (PsiAnnotationSearchUtil.isNotAnnotatedWith(psiClass, LombokClassNames.LOOKUP) &&
+        getLookupProcessor().noHintOrPossibleToGenerateElementNamed(nameHint, psiClass, psiAnnotation)) {
+      target.addAll(getLookupProcessor().createLookupMethod(psiClass, psiAnnotation));
     }
 
     boolean hasConstructorWithoutParameters = false;

@@ -1,6 +1,11 @@
-## **Lombok IntelliJ Plugin**
+## **Lombok Extension IntelliJ Plugin**
 
-Integrated into IntelliJ starting with 2020.3 Release
+This is a plugin for Lombok Extension library, thus it's not integrated into IntelliJ and has to be installed manually on demand
+
+Lombok Extension library is available in [lombok-ext repository](https://github.com/coolsoftrf/lombok-ext)
+
+### Supported Extension features
+- @Lookup annotation
 
 Originally developed on Github in https://github.com/mplushnikov/lombok-intellij-plugin, starting on Sun Sep 11 11:16:31 2011
 

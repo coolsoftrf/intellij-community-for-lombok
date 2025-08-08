@@ -57,6 +57,7 @@ public final class LombokProcessorManager {
   private final GetterProcessor myGetterProcessor = new GetterProcessor();
   private final SetterProcessor mySetterProcessor = new SetterProcessor();
   private final ToStringProcessor myToStringProcessor = new ToStringProcessor();
+  private final LookupProcessor myLookupProcessor = new LookupProcessor();
   private final WitherProcessor myWitherProcessor = new WitherProcessor();
   private final WithByProcessor myWithByProcessor = new WithByProcessor();
   private final WithByFieldProcessor myWithByFieldProcessor = new WithByFieldProcessor();
@@ -177,6 +178,10 @@ public final class LombokProcessorManager {
 
   public ToStringProcessor getToStringProcessor() {
     return myToStringProcessor;
+  }
+
+  public LookupProcessor getLookupProcessor() {
+    return myLookupProcessor;
   }
 
   public WitherProcessor getWitherProcessor() {
@@ -312,6 +317,7 @@ public final class LombokProcessorManager {
       myGetterProcessor,
       mySetterProcessor,
       myToStringProcessor,
+      myLookupProcessor,
       myWitherProcessor,
       myWithByProcessor,
 

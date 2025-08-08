@@ -79,6 +79,8 @@
       <resolver:remoterepo id="teamcity-repository" url="https://cache-redirector.jetbrains.com/download.jetbrains.com/teamcity-repository"/>
     </resolver:remoterepos>
 
+    <resolver:proxy host="192.168.1.199" port="8080" type="http" nonProxyHosts="127.*|localhost|192.168.*"/>
+
     <resolver:pom file="${jps.bootstrap.dir}/pom.xml" id="jps.bootstrap.pom"/>
 
     <retry retrycount="${retry.attempts}" retrydelay="${retry.delay}">
